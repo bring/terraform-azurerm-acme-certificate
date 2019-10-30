@@ -1,0 +1,6 @@
+terraform.tfstate*
+.terraform*
+.idea*
+kubernetes.auto.tfvars
+secrets.auto.tfvars
+backend.tfvars
