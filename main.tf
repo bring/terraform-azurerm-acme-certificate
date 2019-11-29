@@ -20,6 +20,7 @@ resource "random_string" "cert-password" {
 
 provider "acme" {
   server_url = "https://acme-v02.api.letsencrypt.org/directory"
+  version = "1.5.0"
 }
 
 resource "acme_certificate" "domain-cert" {
