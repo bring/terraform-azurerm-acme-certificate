@@ -17,3 +17,8 @@ output "ceritificate_p12_password" {
 output "ceritificate_pem" {
   value = acme_certificate.domain-cert.certificate_pem
 }
+
+
+output "issuer_pem" {
+  value = acme_certificate.domain-cert.issuer_pem
+}
