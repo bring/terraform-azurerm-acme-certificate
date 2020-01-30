@@ -18,6 +18,9 @@ output "ceritificate_pem" {
   value = acme_certificate.domain-cert.certificate_pem
 }
 
+output "private_key_pem" {
+  value = acme_certificate.domain-cert.private_key_pem
+}
 
 output "issuer_pem" {
   value = acme_certificate.domain-cert.issuer_pem
