@@ -1,7 +1,7 @@
 module "mgmt_key_vault" {
   source         = "github.com/bring/terraform-azurerm-key-vault-secrets"
   name           = var.keyvault_name
-  resource_group = var.resource_group
+  resource_group = var.keyvault_resource_group
   secret_names   = [var.sp_client_id, var.sp_client_secret]
 }
 
@@ -34,9 +34,9 @@ resource "acme_certificate" "domain-cert" {
     config = {
       AZURE_CLIENT_ID       = module.mgmt_key_vault.secrets_values[var.sp_client_id]
       AZURE_CLIENT_SECRET   = module.mgmt_key_vault.secrets_values[var.sp_client_secret]
-      AZURE_SUBSCRIPTION_ID = var.subscription_id
-      AZURE_TENANT_ID       = var.tenant_id
-      AZURE_RESOURCE_GROUP  = var.resource_group
+      AZURE_SUBSCRIPTION_ID = var.dns_subscription_id
+      AZURE_TENANT_ID       = var.dns_tenant_id
+      AZURE_RESOURCE_GROUP  = var.dns_resource_group
     }
   }
 }
